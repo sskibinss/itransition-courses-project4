@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/5.0.2/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-align-left"></span>
+        </button>
+    </div>
+    <div class="row justify-content-between m-sm-2">
+        <div class="col-5">
+            <h2> List of All Users</h2>
+        </div>
+
+        <div class="col-1">
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Sign Out"/>
+            </form>
+        </div>
+    </div>
+    <div>
+        <table class="table table-bordered table-striped ">
+            <thead class="table-dark text-center">
+            <tr>
+                <th>Select All / Clear</th>
+                <th>User ID</th>
+                <th>E-mail</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Registration date</th>
+                <th>Last login date</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody class="text-lg-start">
+            <tr th:each="user:${allUsers}">
+                <td class="justify-content-center">
+                    <div class="form-check align-content-center"><input class="form-check-input position-static"
+                                                                        type="checkbox"></div>
+                </td>
+                <td th:text="${user.id}">User ID</td>
+                <td th:text="${user.email}">E-mail</td>
+                <td th:text="${user.firstName}">First Name</td>
+                <td th:text="${user.lastName}">Last Name</td>
+                <td th:text="${user.registrationDate}">Registration Date</td>
+                <td th:text="${user.lastLoginDate}">Last Login Date</td>
+                <td th:text="${user.status}">Status</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

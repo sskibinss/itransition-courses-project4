@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/5.0.2/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container text-center text-dark">
+    <div>
+        <h1>Home Page</h1>
+        <h2>Choose one from links below:</h2>
+    </div>
+    <div class="row text-center">
+        <div class="row-cols-auto mb-3"><h3><a th:href="@{/list_users}">*List All Users*</a></h3></div>
+        <div class="row-cols-auto mb-3"><h3><a th:href="@{/register}">*Register*</a></h3></div>
+        <div class="row-cols-auto mb-3"><h3><a th:href="@{/login}">*Login*</a></h3></div>
+    </div>
+</div>
+</body>
+</html>
